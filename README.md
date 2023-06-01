@@ -1,0 +1,2 @@
+- ALTER TABLE `users` ADD `can_edit_client_days` TINYINT(1) NOT NULL DEFAULT '0' COMMENT '0 => not allowed, 1 => allowed' AFTER `change_bill_income`;
+- ALTER TABLE `badr_shop` ADD `allow_lines` TINYINT(1) NOT NULL DEFAULT '0' AFTER `show_input_keys`;

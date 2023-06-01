@@ -1,0 +1,67 @@
+{
+  "name": "laravel/laravel",
+  "description": "The Laravel Framework.",
+  "keywords": [
+    "framework",
+    "laravel"
+  ],
+  "license": "MIT",
+  "type": "project",
+  "require": {
+    "php": ">=5.5.9",
+    "laravel/framework": "5.5.*",
+    "barryvdh/laravel-ide-helper": "^2.2",
+    "darryldecode/cart": "~3.0",
+    "laravelcollective/html": "^5.2.0",
+    "laracasts/flash": "^3.0",
+    "tymon/jwt-auth": "0.5.*",
+    "laravel/installer": "^1.4",
+    "pusher/pusher-php-server": "^3.0",
+    "berkayk/onesignal-laravel": "^0.9.9",
+    "ixudra/curl": "^6.15",
+    "stuyam/laravel-phone-validator": "^1.0",
+    "maatwebsite/excel": "^3.1"
+  },
+  "require-dev": {
+    "fzaninotto/faker": "~1.4",
+    "mockery/mockery": "0.9.*",
+    "phpunit/phpunit": "~4.0",
+    "symfony/css-selector": "2.8.*|3.0.*",
+    "symfony/dom-crawler": "2.8.*|3.0.*"
+  },
+  "autoload": {
+    "classmap": [
+      "database"
+    ],
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/TestCase.php"
+    ]
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "php -r \"copy('.env.example', '.env');\""
+    ],
+    "post-create-project-cmd": [
+      "php artisan key:generate"
+    ],
+    "post-install-cmd": [
+      "Illuminate\\Foundation\\ComposerScripts::postInstall",
+      "php artisan optimize"
+    ],
+    "post-update-cmd": [
+      "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+      "php artisan optimize"
+    ]
+  },
+  "config": {
+    "preferred-install": "dist",
+    "allow-plugins": {
+      "kylekatarnls/update-helper": true
+    }
+  }
+}

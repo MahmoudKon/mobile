@@ -1,0 +1,39 @@
+ {{--<td style="background:#F7F7F7">--}}
+									{{--<?php--}}
+									{{--$avg = $item->rate;--}}
+
+									{{--$style = "<style>--}}
+                    {{--#view-" . $item->id . "-" . $avg . " ~ label.view:before{--}}
+
+                    {{--color: #FD4;--}}
+
+                    {{--}--}}
+                    {{--label.view{--}}
+                    {{--font-size:15px;--}}
+                    {{--}--}}
+{{--</style>";--}}
+									{{--echo $style;--}}
+									{{--?>--}}
+
+                                    {{--<div class="rating views" onclick="open_model({{$item->id}})">--}}
+
+                                        {{--<input class="view view-5" id="view-<?php echo $item->id ?>-5" type="radio"--}}
+                                               {{--name="view" value="5" disabled @if($avg==5) checked @endif/>--}}
+
+                                        {{--<label class="view view-5" for=view-<?php echo $item->id ?>-5"></label>--}}
+                                        {{--<input class="view view-4" id="view-<?php echo $item->id ?>-4" type="radio"--}}
+                                               {{--name="view" value="4" disabled @if($avg==4) checked @endif />--}}
+                                        {{--<label class="view view-4" for="view-<?php echo $item->id ?>-4"></label>--}}
+                                        {{--<input class="view view-3" id="view-<?php echo $item->id ?>-3" type="radio"--}}
+                                               {{--name="view" value="3" disabled @if($avg==3) checked @endif/>--}}
+                                        {{--<label class="view view-3" for="view-<?php echo $item->id ?>-3"></label>--}}
+                                        {{--<input class="view view-2" id="view-<?php echo $item->id ?>-2" type="radio"--}}
+                                               {{--name="view" value="2" disabled @if($avg==2) checked @endif/>--}}
+                                        {{--<label class="view view-2" for="view-<?php echo $item->id ?>-2"></label>--}}
+                                        {{--<input class="view view-1" id="view-<?php echo $item->id ?>-1" type="radio"--}}
+                                               {{--name="view" value="1" disabled @if($avg==1) checked @endif/>--}}
+                                        {{--<label class="view view-1" for="view-<?php echo $item->id ?>-1"></label>--}}
+
+                                    {{--</div>--}}
+                                {{--</td>--}}
+                            </tr>

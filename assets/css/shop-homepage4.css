@@ -1,0 +1,170 @@
+/*!
+ * Start Bootstrap - Shop Homepage HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+@font-face {
+	font-family: 'noor';
+	src: url('../fonts/AGCRegular.ttf');
+}
+@font-face {
+	font-family: 'noor-bold';
+	src: url('../fonts/AGCBold.ttf');
+}
+body {
+	font-family: 'noor';
+	background-color:#bbbbbb;
+   /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+.carousel-control .icon-next, .carousel-control .glyphicon-arrow-right {
+    left: 50%;
+    margin-left: -10px;
+}
+.carousel-control .icon-prev, .carousel-control .icon-next, .carousel-control .glyphicon-arrow-left, .carousel-control .glyphicon-arrow-right {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    display: inline-block;
+}
+
+@media only screen and (min-width: 100px) and (max-width: 500px) {
+.carousel-inner>.item>img, .carousel-inner>.item>a>img{
+	height:150px;
+}
+}
+@media only screen and (min-width: 500px) and (max-width: 1000px) {
+.carousel-inner>.item>img, .carousel-inner>.item>a>img{
+	height:150px;
+}
+}
+@media only screen and (min-width: 1000px) and (max-width: 2000px) {
+.carousel-inner>.item>img, .carousel-inner>.item>a>img{
+	height:350px;
+}
+}
+@media only screen and (min-width: 2000px) and (max-width: 4000px) {
+.carousel-inner>.item>img, .carousel-inner>.item>a>img{
+	height:350px;
+}
+}
+.navbar_badr{
+	background-color:	#a9648e;
+	color:#000;
+}
+.navbar_badr .navbar-nav>li>a {
+    color: #22262A;
+    transition: 0.5s;
+}
+.navbar_badr .navbar-brand {
+    color: #22262a;
+}
+.btn-badr{
+	background-color:	#a9648e;
+	color:#22262A;
+	border-radius:0px;
+}
+.btn_title{
+	background-color:#22262a;
+	color:#FFFFFF;
+	border-radius:0px;
+}
+.btn_title:hover{
+	background-color: #bbbbbb;
+    color: #000;
+    border-radius: 0px;
+}
+
+a.list-group-item{
+	transition:0.5s;
+}
+a.list-group-item:hover, 
+a.list-group-item:focus{
+	background-color:	#a9648e;
+	color:#fff;
+	padding-right:20px;
+}
+.thumbnail {
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0px;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.slide-image {
+    width: 100%;
+    max-height: 350px;
+}
+.navbar {
+    position: relative;
+    border-radius:0px;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+.carousel-holder {
+   
+}
+.nocontainer{
+	padding-right: 0px;
+    padding-left:0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.norow{
+	    margin-right: 0px;
+    margin-left: 0px;
+}
+.nocol{
+	padding-right: 0px;
+    padding-left: 0px;
+}
+.carousel-control,
+.item {
+    border-radius: 4px;
+}
+.caro_img { 
+	width:100%;
+	height:300px !important;
+	}
+.caption {
+    height: 130px;
+    overflow: hidden;
+}
+
+.caption h4 {
+    white-space: nowrap;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
+}
+
+footer {
+    margin-top: 50px;
+    padding:2%;
+    background-color:	#a9648e;
+    text-align:center;
+}
+footer p {
+	color:#FFFFFF;
+}
