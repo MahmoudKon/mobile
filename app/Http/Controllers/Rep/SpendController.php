@@ -90,23 +90,32 @@ class SpendController extends Controller
                 'bill_no' => 0,
                 'local_id' => $request->local_id
             ];
-            Spending::create($spending_input);
-            $sale_point->money_point -= $request->amount;
-            $sale_point->save();
-            $trans_input = [
-                'shop_id' => $shop_id,
-                'date_time' => Carbon::now(),
-                'amount' => $request->amount,
-                'type' => 10,
-                'effect' => 0,
-                'pay_day' => $request->date,
-                'safe_balance' => $sale_point->money_point,
-                'safe_point_id' => $sale_point->id,
-                'notes' => $request->notes,
-                'spend_id' => $request->term_id,
-                'user_id' => auth('rep')->id(),
-            ];
-            ClientTransaction::create($trans_input);
+            
+
+            try {
+                Spending::create($spending_input);
+                $sale_point->money_point -= $request->amount;
+                $sale_point->save();
+                $trans_input = [
+                    'shop_id' => $shop_id,
+                    'date_time' => $request->date_time ?? Carbon::now(),
+                    // 'date_time' => Carbon::now(),
+                    'amount' => $request->amount,
+                    'type' => 10,
+                    'effect' => 0,
+                    'pay_day' => $request->date,
+                    'safe_balance' => $sale_point->money_point,
+                    'safe_point_id' => $sale_point->id,
+                    'notes' => $request->notes,
+                    'spend_id' => $request->term_id,
+                    'user_id' => auth('rep')->id(),
+                ];
+
+                ClientTransaction::create($trans_input);
+            } catch(\Exception $e) {
+                return ['status' => false];
+            }
+
             return ['status' => true];
         });
         if ($transaction['status']) {
