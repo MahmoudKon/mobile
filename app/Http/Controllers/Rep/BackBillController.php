@@ -241,11 +241,11 @@ class BackBillController extends Controller
             $discount_percent = $bill['discount'];
             $discount_type = $bill['discount_type'];
 	            
-            // if ($discount_type == 1) { // money
-            //     if ($discount > 0) {
-            //         $discount_percent = $discount * 100 / $total_before_vat;  // money to percent
-            //     }
-            // }
+            if ($discount_type == 1) { // money
+                if ($discount > 0) {
+                    $discount_percent = $discount * 100 / $total_before_vat;  // money to percent
+                }
+            }
             
             $for_vat_after_discount = $for_vat;
             $percent_vat = 0;
