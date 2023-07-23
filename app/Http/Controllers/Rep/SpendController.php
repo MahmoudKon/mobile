@@ -32,12 +32,14 @@ class SpendController extends Controller
 
     public function store(Request $request)
     {
+        \Log::info( json_encode($request->all() ) );
         $shop_id = auth()->guard('rep')->user()->shop_id;
         $validation = validator()->make($request->all(), [
             'term_id' => 'required|exists:spending_item,id,shop_id,' . $shop_id,
             'date' => 'required',
             'amount' => 'required|numeric',
-            'local_id' => 'required'
+            'local_id' => 'required',
+            'date_time' => 'required'
         ]);
         if ($validation->fails()) {
             $errors = $validation->errors();
@@ -113,6 +115,7 @@ class SpendController extends Controller
 
                 ClientTransaction::create($trans_input);
             } catch(\Exception $e) {
+                DB::rollback();
                 return ['status' => false];
             }
 
