@@ -546,15 +546,14 @@ class BillController extends Controller
                             ['net_price', $net],
                             ['shop_id', $shop_id],
                             ['sale_date', $bill['date_time']]
-                        ])
-                        ->select(['id',  'bill_no'])->first();
+                        ])->orWhere('unique_row', SaleProcess::uniqueRow($shop_id, $bill['client_id'], $bill_date, $net))->select(['id',  'bill_no'])->first();
 
-                    $value= [   
-                        'status' => true,
-                        'bill_no' => $data['bill_no'],
-                        'bill_id' => $data['id'],
-                        'message' => 'Save Done successfully'
-                    ];
+                        $value = [   
+                            'status' => !!$data,
+                            'bill_no' => $data->bill_no ?? '',
+                            'bill_id' => $data->id ?? '',
+                            'message' => $data ? 'Save Done successfully' : ''
+                        ];
                 } else {
                     $value = [
                         'status' => false,
@@ -596,6 +595,7 @@ class BillController extends Controller
             }
 
             // dd($paid);
+            $bill_date = Carbon::parse($bill_date)->format('Y-m-d H:i:s');
             $sale_process = new SaleProcess();
             $sale_process->date_process = $date;
             $sale_process->sale_date = $bill_date;
@@ -617,6 +617,7 @@ class BillController extends Controller
             $sale_process->rest = $net - $paid;
             $sale_process->clientOldBalance = $client->balance;
             $sale_process->illegal = is_null($is_legal) ? 1 : 0;
+            $sale_process->unique_row = "$shop_id-$client_id-$bill_date-$net";
             $sale_process->save();
             $bill_id = $sale_process->id;
             $point_id = $sale_process->sale_point;
@@ -765,7 +766,7 @@ class BillController extends Controller
             'safe_point_id' => $safe->id,
             'safe_balance' => $safe->money_point,
             'bill_net_total' => $net,
-            'safe_type' => $safe->point_type,
+            'safe_type' => $safe->point_type
         ]);
     }
 }
